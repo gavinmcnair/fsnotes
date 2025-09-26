@@ -1,0 +1,15 @@
+make -C /lib/modules/$(uname -r)/build M=$(pwd) modules
+
+obj-m += clear_sb_ro.o
+
+sudo insmod clear_sb_ro.ko
+
+example usage
+
+echo sda1 | sudo tee /sys/kernel/clear_sb_ro/clear_device
+
+
+Notes
+----
+
+Try btsfs and zfs before continuing.
